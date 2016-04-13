@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='outerHost'>
+		Contenido del light dom
+	</div>
+	<script>
+		var outerHost = document.querySelector('#outerHost');
+		var outerRoot = outerHost.createShadowRoot();
+		outerRoot.innerHTML = 'contenido del outerRoot <div id="innerHost"></div>';
+		var innerHost = outerRoot.querySelector('#innerHost');
+		var innerRoot = innerHost.createShadowRoot();
+		innerRoot.innerHTML = 'contenido del innerRoot';
+
+		/* Creamos un shadow al shadow que nace del outerHost  */
+	</script>
+</body>
+</html>

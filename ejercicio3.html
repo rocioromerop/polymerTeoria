@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id='host'>
+		Contenido del light dom
+	</div>
+	<script>
+		var host = document.querySelector('#host');
+		var root1 = host.createShadowRoot();
+		var root2 = host.createShadowRoot();
+		var root3 = host.createShadowRoot();
+		root1.innerHTML = 'contenido del root1 antes';
+		root2.innerHTML = 'contenido del root2 <shadow></shadow> ;root2 despues';
+		root3.innerHTML = 'contenido del root3 <shadow></shadow> ;root3 despues';
+	</script>
+</body>
+</html>
