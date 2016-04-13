@@ -8,6 +8,10 @@
 
 <body>
     <div id="cart">
+        <div id="name">Javier Vélez</div>
+        <div id="twitter">javiervelezreye</div> 
+        <div id="telefono">123456789</div>
+        <img id='imagen' src="https://placeholdit.imgix.net/~text?txtsize=33&bg=ffc107&txtclr=000000&txt=350%C3%97150&w=350&h=150">
         <div class="product">
             <div class="name">Producto1</div>
             <div class="price">Precio1</div>
@@ -16,14 +20,23 @@
             <div class="name">Producto2</div>
             <div class="price">Precio2</div>
         </div>
+        <div class="food meat">Cow</div>
+        <div class="dessert fruit">Orange</div>
+        <div class="food fish">Cod</div>
+        <div class="food fruit">Tomato</div>
+        <div class="food dessert">Elemento con food dessert</div>
+
     </div>
     <script>
     var outerHost = document.querySelector('#cart');
     var outerRoot = outerHost.createShadowRoot();
-    outerRoot.innerHTML = 'Productos: <content select=".product .name">';
+    outerRoot.innerHTML = 'Ficha 1: Nombre: <content select="#name"></content> Twitter: <content select="#twitter"></content>Teléfono:<content select="#telefono"></content>Imágen:<content select="#imagen"></content> <br> <br>Ficha 2: Alimentos: <content select=".food"></content> Postres: <content select=".dessert"></content> <br> <br> Ficha 3: Productos: <content select=".product"></content> Home: <content select=".home">-</content>';
+    console.log(outerRoot.innerHTML);
     </script>
 </body>
 
 </html>
 
 <!-- Content consume los contenidos, no se pueden repetir luego , y sólo opera sobre el primer nivel, no se pueden alcanzar los elementos de dentro -->
+
+<!-- Cuando no tenemos valores, está bien poner valores por defecto. Para hacerlo, se pone dentro de la etiqueta content -->
