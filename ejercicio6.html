@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cart">
+        <div class="food meat">Cow</div>
+        <div class="dessert fruit">Orange</div>
+        <div class="food fish">Cod</div>
+        <div class="food fruit">Tomato</div>
+        <div class="food dessert">Elemento con food dessert</div>
+    </div>
+    <script>
+    var outerHost = document.querySelector('#cart');
+    var outerRoot = outerHost.createShadowRoot();
+    outerRoot.innerHTML = 'Alimentos: <content select=".food"></content> Postres: <content select=".dessert"</content>';
+    </script>
+
+</body>
+
+</html>
+ <!-- Content consume los contenidos, no se pueden repetir luego -->

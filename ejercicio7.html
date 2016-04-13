@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="cart">
+        <div class="product">
+            <div class="name">Producto1</div>
+            <div class="price">Precio1</div>
+        </div>
+        <div class="product">
+            <div class="name">Producto2</div>
+            <div class="price">Precio2</div>
+        </div>
+    </div>
+    <script>
+    var outerHost = document.querySelector('#cart');
+    var outerRoot = outerHost.createShadowRoot();
+    outerRoot.innerHTML = 'Productos: <content select=".product .name">';
+    </script>
+</body>
+
+</html>
+
+<!-- Content consume los contenidos, no se pueden repetir luego , y sólo opera sobre el primer nivel, no se pueden alcanzar los elementos de dentro -->
