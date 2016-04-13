@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='host'>
+        Contenido del light dom
+    </div>
+    <script>
+    var host = document.querySelector('#host');
+    var root = host.createShadowRoot();
+    root.innerHTML = ' <button id = "btn"> Up </button> <span id = "cont"> </span> <button id = "btn2"> Down</button>';
+    var i = 0;
+    root.querySelector('#btn').addEventListener('click', function() {
+        i++;
+        root.querySelector('#cont').textContent = i;
+    });
+    root.querySelector('#btn2').addEventListener('click', function() {
+        i--;
+        root.querySelector('#cont').textContent = i;
+    });
+    /* Donde antes ponía document, ahora tengo que poner root */
+    </script>
+</body>
+
+</html>

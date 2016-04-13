@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button id='btn'>Up</button>
+	<span id='cont'></span>
+	<button id='btn2'>Down</button>
+	<script>
+		var i=0;
+		document.querySelector('#btn').addEventListener('click', function(){
+			i++;
+			document.querySelector('#cont').textContent = i;
+		});
+		
+		document.querySelector('#btn2').addEventListener('click', function(){
+			i--;
+			document.querySelector('#cont').textContent = i;
+		});
+	</script>
+	<button id='btn'>Up</button>
+	<span id='cont'></span>
+	<button id='btn2'>Down</button>
+	<script>
+		var i=0;
+		document.querySelector('#btn').addEventListener('click', function(){
+			i++;
+			document.querySelector('#cont').textContent = i;
+		});
+		document.querySelector('#btn2').addEventListener('click', function(){
+			i--;
+			document.querySelector('#cont').textContent = i;
+		});
+	</script>
+
+</body>
+</html>
