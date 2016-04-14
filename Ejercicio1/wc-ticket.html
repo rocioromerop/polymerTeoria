@@ -1,0 +1,34 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+
+<dom-module id="wc-ticket">
+    <template>
+    	<div class="ticket">
+    		<h1>Información de la película:</h1>
+    		<h1>Título: </h1>
+    		<div id="titulo"></div>
+    		<h1>Director: </h1>
+    		<div id="director"></div>
+    		<h1>Año: </h1>
+    		<div id="año"></div>
+    		<h1>Imagen: </h1>
+    		<img src="" id="img">
+    	</div>
+    </template>
+    <script>
+    	(function(){
+    		Polymer({
+    			is : 'wc-ticket',
+    			ready: function(){
+    				var titulo = this.$.titulo;
+    				titulo.textContent = "Titulo1";
+    				var dir = this.$.director;
+    				director.textContent = "Director1";
+    				var año = this.$.año;
+    				año.textContent = "Año1";
+    				var img = this.$.img;
+    				img.src = "http://placehold.it/350x150/FFC107/000000";
+    			}
+    		})
+    	})();
+    </script>
+</dom-module>

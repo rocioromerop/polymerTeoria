@@ -8,7 +8,6 @@
 var doc = document.currentScript.ownerDocument;
 var p = Object.create(HTMLElement.prototype);
 
-
 p.createdCallback = function() {
    var root = this.createShadowRoot();
    var template = doc.querySelector("#news").content;
