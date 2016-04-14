@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-</head>
-<body>
-	<button id='btn'>Up</button>
-	<span id='cont'></span>
-	<button id='btn2'>Down</button>
-	<script>
-		var i=0;
-		document.querySelector('#btn').addEventListener('click', function(){
-			i++;
-			document.querySelector('#cont').textContent = i;
-		});
-		
-		document.querySelector('#btn2').addEventListener('click', function(){
-			i--;
-			document.querySelector('#cont').textContent = i;
-		});
-	</script>
-	<button id='btn'>Up</button>
-	<span id='cont'></span>
-	<button id='btn2'>Down</button>
-	<script>
-		var i=0;
-		document.querySelector('#btn').addEventListener('click', function(){
-			i++;
-			document.querySelector('#cont').textContent = i;
-		});
-		document.querySelector('#btn2').addEventListener('click', function(){
-			i--;
-			document.querySelector('#cont').textContent = i;
-		});
-	</script>
 
+<head>
+    <meta charset="UTF-8">
+    <script src="http://www.polymer-project.org/1.0/components/webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href='news.html'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="host">
+        <wc-new id="a">
+            <wc-new-image>https://placeholdit.imgix.net/~text?txtsize=33&bg=ffc107&txtclr=000000&txt=350%C3%97150&w=350&h=150</wc-new-image>
+            <wc-new-body>Información body1</wc-new-body>
+        </wc-new>
+    </div>
+    <div class="host">
+        <wc-new id="b">
+            <wc-new-image>https://placeholdit.imgix.net/~text?txtsize=33&bg=ffc107&txtclr=000000&txt=350%C3%97150&w=350&h=150</wc-new-image>
+            <wc-new-body>Información body2</wc-new-body>
+        </wc-new>
+    </div>
 </body>
+
 </html>
