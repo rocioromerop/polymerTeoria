@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <template id='news'>
+        <img src="">
+        <div id="body"></div>
+    </template>
+    <div class="new-1"></div>
+    <div class="new-2"></div>
+    <script>
+
+    function createNew(container, image, body){
+        var root = document.querySelector(container).createShadowRoot();
+        var template = document.querySelector("#news").content;
+        template.querySelector("img").src = image;
+        template.querySelector('#body').textContent=body;
+        root.appendChild(template.cloneNode(true));
+    }
+
+    var new1 = createNew(".new-1", "https://placeholdit.imgix.net/~text?txtsize=33&bg=ffc107&txtclr=000000&txt=350%C3%97150&w=350&h=150", "body1" );
+    var new2 = createNew(".new-2", "https://placeholdit.imgix.net/~text?txtsize=33&bg=ffc107&txtclr=000000&txt=350%C3%97150&w=350&h=150", "body2" );
+
+    </script>
+
+</body>
+
+
+</html>
+
+<!-- Función que crea un componente -->
