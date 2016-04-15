@@ -27,6 +27,14 @@
     (function() {
         Polymer({
             is: 'wc-window',
+             properties: {
+                kiosk: {
+                    type: Object,
+                    value: function(){
+                        return {};
+                    }
+                }
+            },
             onSesion: function(e) {
                 console.log(e);
                 var title = e.detail.title;
@@ -36,14 +44,9 @@
                 ticket.sesion = sesion;
                 ticket.title = title;
                 ticket.code = code;
-                var ki = this.parentNode.querySelector(this.kiosk).addTicket(ticket);
+                this.kiosk.addTicket(ticket);
             },
-            properties: {
-                kiosk: {
-                    type: String,
-                    value: ''
-                }
-            },
+           
             onClick: function(e) {
                 console.log("Prueba");
 

@@ -12,7 +12,7 @@
     }
     </style>
     <template>
-        <div class="kiosko">
+        <div id="ticket">
             <h1>Kiosco:</h1>
             {{ticket}}
         </div>
@@ -23,7 +23,7 @@
         Polymer({
             is: 'wc-kiosco',
             addTicket: function(ticket) {
-                this.querySelector(".kiosko").appendChild(ticket);
+                this.$.ticket.appendChild(ticket);
             }
             
         })
