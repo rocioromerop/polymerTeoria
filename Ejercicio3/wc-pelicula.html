@@ -29,9 +29,9 @@
             <h1>Imagen: </h1>
             <img src="{{img}}" id="img">
             <div>
-                <button value='18.00' id="boton1">Sesión 1</button>
-                <button id="boton2" value='20.00'>Sesión 2</button>
-                <button value='22.00' id="boton3">Sesión 3</button>
+                <button on-click='wcMovieSession' value='18.00' id="boton1">Sesión 1</button>
+                <button on-click='wcMovieSession' id="boton2" value='20.00'>Sesión 2</button>
+                <button on-click='wcMovieSession' value='22.00' id="boton3">Sesión 3</button>
             </div>
             <h1>Código: </h1>
             <div>{{code}}</div>
@@ -41,6 +41,13 @@
     (function() {
         Polymer({
             is: 'wc-pelicula',
+            wcMovieSession: function(e){
+                var buttonSesion = Polymer.dom(e).localTarget.value;
+                var titulo = this.titulo;
+                var code = this.code;
+                e.stopPropagation();
+                this.fire('wc-movie-session', {sesion: buttonSesion, title: titulo, code: code});
+            },
             properties: {
                 titulo: {
                     type: String,

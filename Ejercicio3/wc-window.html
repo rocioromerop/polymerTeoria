@@ -8,7 +8,6 @@
         border-style: solid;
         background-color: #FFFF66;
         text-align: center;
-
     }
     
     .tit {
@@ -19,33 +18,35 @@
     <template>
         <div class="cont">
             <h1 class='tit'>TAQUILLA:</h1>
-            <content></content>
+            <div id="c" on-wc-movie-session='onSesion'>
+                <content></content>
+            </div>
         </div>
     </template>
     <script>
     (function() {
         Polymer({
             is: 'wc-window',
+            onSesion: function(e) {
+                console.log(e);
+                var title = e.detail.title;
+                var sesion = e.detail.sesion;
+                var code = e.detail.code;
+                var ticket = new Ticket();
+                ticket.sesion = sesion;
+                ticket.title = title;
+                ticket.code = code;
+                var ki = this.parentNode.querySelector(this.kiosk).addTicket(ticket);
+            },
             properties: {
                 kiosk: {
                     type: String,
                     value: ''
                 }
             },
-            ready: function() {
-                var peliculas = Polymer.dom(this).querySelectorAll('wc-pelicula');
-                peliculas.forEach(function(pelicula) {
-                    pelicula.addEventListener('click', function(e) {
-                        // el target = e.target, que es un botón
-                        var target = e.target;
-                        var valor = target.value;
-                        var ticket = new Ticket();
-                        ticket.sesion = valor;
-                        ticket.title = pelicula.titulo;
-                        ticket.code = pelicula.code;
-                        var ki = this.parentNode.querySelector(this.kiosk).addTicket(ticket);
-                    }.bind(this))
-                }.bind(this))
+            onClick: function(e) {
+                console.log("Prueba");
+
             }
         })
     })();
