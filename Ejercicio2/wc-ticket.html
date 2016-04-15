@@ -1,0 +1,65 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<dom-module id="wc-pelicula">
+    <style>
+        .ticket{
+            border-style : solid;
+        }
+    </style>
+    <template>
+        <div class="pelicula">
+            <h1>Información de la película:</h1>
+            <h1>Título: </h1>
+            <div id="titulo">{{titulo}}</div>
+            <h1>Director: </h1>
+            <div id="director">{{director}}</div>
+            <h1>Año: </h1>
+            <div id="año">{{anyo}}</div>
+            <h1>Imagen: </h1>
+            <img src="{{img}}" id="img">
+            <div>
+                <button>Sesión 1</button>
+                <button>Sesión 2</button>
+                <button>Sesión 3</button>
+            </div>
+            <h1>Código: </h1>
+            <div>{{code}}</div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-pelicula',
+            
+            properties : {
+                titulo : {
+                    type: String,
+                    value: 'TituloPorDefecto'
+                },
+                director : {
+                    type: String,
+                    value : 'DirectorPorDefecto'
+                },
+                anyo : {
+                    type: String,
+                    value : 'AñoPorDefecto'
+                },
+                img: {
+                    type: String,
+                    value: ''
+                },
+                sesion: {
+                    type: String,
+                    value: ''
+                },
+                code : {
+                    type: String,
+                    computed : 'getCode(titulo, sesion)'
+                }
+            },
+            getCode : function(titulo, sesion){
+                    return titulo + '-' + sesion;
+                }
+        })
+    })();
+    </script>
+</dom-module>
