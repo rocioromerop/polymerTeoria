@@ -1,0 +1,63 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-window.html">
+<link rel="import" href="wc-pelicula.html">
+<link rel='import' href="wc-kiosco.html">
+<link rel='import' href="wc-ticket.html">
+<link rel='import' href="wc-cinema.html">
+
+<dom-module id="wc-test">
+    <template>
+        <button value="A" on-tap="onTap">Cambiar</button>
+        <wc-cinema id="A" movies="{{moviesA}}">
+        </wc-cinema>
+        <wc-cinema id="B" movies="{{moviesB}}">
+        </wc-cinema>
+        <wc-window kiosk='{{kiosk}}' id="window"movies="[[movies]]">
+        </wc-window>
+        <wc-kiosco id='k'>
+        </wc-kiosco>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-test',
+            properties: {
+                kiosk: Object,
+                movies: {
+                    type: Object,
+                    value: function(){
+                        return [];
+                    }
+                },
+                moviesA: {
+                    type: Object,
+                    value: function(){
+                        return [];
+                    }
+                },
+                moviesB: {
+                    type: Object,
+                    value: function(){
+                        return [];
+                    }
+                }
+            },
+            ready: function() {
+                this.kiosk = this.$.k;
+                this.movies = this.moviesA;
+                console.log(this.movies);
+            },
+            onTap: function(e){
+                if(e.target.value === "A"){
+                    e.target.value = "B";
+                    this.movies = this.moviesB;
+                }
+                else{
+                    e.target.value = "A";
+                    this.movies = this.moviesA;
+                }
+            }
+        })
+    })();
+    </script>
+</dom-module>
