@@ -19,6 +19,7 @@
             },
             ready: function() {
                 if (i == 0) {
+                    console.log("entro aqui");
                     this.movies = [{
                         titulo: 'starWars',
                         director: 'directorStarWars',
@@ -32,6 +33,7 @@
                     }];
                     this.notifyPath('movies', this.movies);
                 } else {
+                    console.log("entro aqui 2");
                     this.movies = [{
                         titulo: 'starWars3',
                         director: 'directorStarWars3',
