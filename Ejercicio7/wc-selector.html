@@ -1,0 +1,82 @@
+<link rel="import" href="http://www.polymer-project.org/1.0/components/polymer/polymer.html">
+<link rel="import" href="wc-window.html">
+<link rel="import" href="wc-pelicula.html">
+<link rel='import' href="wc-kiosco.html">
+<link rel='import' href="wc-ticket.html">
+<link rel='import' href="wc-cinema.html">
+<dom-module id="wc-selector">
+    <template>
+        <style>
+        button {
+            background: var(--fondo, grey);
+        }
+        </style>
+        <button value="A" on-tap="onTap">Cambiar</button>
+        <button value='true' on-tap="setTheme">Change Theme</button>
+        <content></content>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-selector',
+            properties: {
+                kiosk: Object,
+                movies: {
+                    type: Object,
+                    value: function() {
+                        return [];
+                    }
+                },
+                data: {
+                    type: Object,
+                    value: function() {
+                        return [];
+                    }
+                },
+                selected: {
+                    type: Number,
+                    value: 0,
+                },
+                key: String,
+                child: {
+                    type: Object
+                }
+            },
+            setTheme: function(e) {
+                if (e.target.value === 'true') {
+                    e.target.value = 'false';
+                    this.customStyle['--fondo'] = 'blue';
+                    this.updateStyles();
+                } else {
+                    e.target.value = 'true';
+                    this.customStyle['--fondo'] = 'green';
+                    this.updateStyles();
+                }
+            },
+            ready: function() {
+                this.kiosk = this.$.k;
+                this.async(function() {
+                    this.data = Polymer.dom(this).children[this.selected].movies;
+                    this.notifyPath('data', this.data);
+                }, 200);
+
+            },
+            onTap: function(e) {
+
+                this.selected = (this.selected + 1) % Polymer.dom(this).children.length;
+                this.child = Polymer.dom(this).children[this.selected];
+                if (e.target.value === 'A') {
+                    e.target.value = 'B';
+                    this.data = this.child.movies;
+                    this.notifyPath('data', this.data);
+                } else {
+                    e.target.value = 'A';
+
+                    this.data = this.child.movies;
+                    this.notifyPath('data', this.data);
+                }
+            }
+        })
+    })();
+    </script>
+</dom-module>
