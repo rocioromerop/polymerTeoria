@@ -1,0 +1,84 @@
+
+<dom-module id="wc-pelicula">
+    <style>
+    .pelicula {
+        background-color: grey;
+        text-align: center;
+        border-radius: 50px;
+        height: 800px;
+        margin: 10px;
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+    .primh1 {
+        color: #330066;
+    }
+
+    </style>
+    <template>
+        <div class="pelicula">
+            <h1 class='primh1'>Información de la película:</h1>
+            <h1>Título: </h1>
+            <div id="titulo">{{titulo}}</div>
+            <h1>Director: </h1>
+            <div id="director">{{director}}</div>
+            <h1>Año: </h1>
+            <div id="año">{{anyo}}</div>
+            <h1>Imagen: </h1>
+            <img src="{{img}}" id="img">
+            <div>
+                <button on-click='wcMovieSession' value='18.00' id="boton1">Sesión 1</button>
+                <button on-click='wcMovieSession' id="boton2" value='20.00'>Sesión 2</button>
+                <button on-click='wcMovieSession' value='22.00' id="boton3">Sesión 3</button>
+            </div>
+            <h1>Código: </h1>
+            <div>{{code}}</div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-pelicula',
+            wcMovieSession: function(e){
+                var buttonSesion = Polymer.dom(e).localTarget.value;
+                var titulo = this.titulo;
+                var code = this.code;
+                e.stopPropagation();
+                this.fire('wc-movie-session', {sesion: buttonSesion, title: titulo, code: code});
+            },
+            properties: {
+                titulo: {
+                    type: String,
+                    value: 'TituloPorDefecto'
+                },
+                director: {
+                    type: String,
+                    value: 'DirectorPorDefecto'
+                },
+                anyo: {
+                    type: String,
+                    value: 'AñoPorDefecto'
+                },
+                img: {
+                    type: String,
+                    value: ''
+                },
+                sesion: {
+                    type: String,
+                    value: ''
+                },
+                code: {
+                    type: String,
+                    computed: 'getCode(titulo, sesion)'
+                }
+            },
+            getCode: function(titulo, sesion) {
+                return titulo + '-' + sesion;
+            }
+
+        })
+    })();
+    </script>
+</dom-module>

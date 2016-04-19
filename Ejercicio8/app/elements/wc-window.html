@@ -1,0 +1,60 @@
+|
+<link rel="import" href="wc-pelicula.html">
+<link rel="import" href="wc-kiosco.html">
+<link rel="import" href="wc-ticket.html">
+<dom-module id="wc-window">
+    <style>
+    .cont {
+        border-style: solid;
+        background-color: #FFFF66;
+        text-align: center;
+    }
+    
+    .tit {
+        color: blue;
+        margin: 10px;
+    }
+    </style>
+    <template>
+        <div class="cont">
+            <h1 class='tit'>TAQUILLA:</h1>
+            <div id="c" on-wc-movie-session='onSesion'>
+                <template is="dom-repeat" items="{{movies}}">
+                    <wc-pelicula titulo="{{item.titulo}}" director="{{item.director}}" anyo="{{item.anyo}}" sesion="{{item.sesion}}" img='{{img}}'></wc-pelicula>
+                </template>
+            </div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Polymer({
+            is: 'wc-window',
+            properties: {
+                kiosk: {
+                    type: Object,
+                    value: function() {
+                        return {};
+                    }
+                },
+                movies: {
+                    type: Object
+                }
+            },
+            onSesion: function(e) {
+                var title = e.detail.title;
+                var sesion = e.detail.sesion;
+                var code = e.detail.code;
+                var ticket = new Ticket();
+                ticket.sesion = sesion;
+                ticket.title = title;
+                ticket.code = code;
+                this.kiosk.addTicket(ticket);
+            },
+            onClick: function(e) {
+                console.log("Prueba");
+
+            }
+        })
+    })();
+    </script>
+</dom-module>

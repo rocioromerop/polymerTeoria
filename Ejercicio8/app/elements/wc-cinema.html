@@ -1,0 +1,50 @@
+
+
+<dom-module id="wc-cinema">
+    <script>
+    (function() {
+        var i = 0;
+        Polymer({
+            is: 'wc-cinema',
+            properties: {
+                movies: {
+                    type: Array,
+                    value: function() {
+                        return [];
+                    }
+                }
+            },
+            ready: function() {
+                if (i == 0) {
+                    this.movies = [{
+                        titulo: 'starWars',
+                        director: 'directorStarWars',
+                        anyo: '1999',
+                        img: "http://placehold.it/350x150/FFC107/000000",sesion: 'primera'
+                    }, {
+                        titulo: 'pelicula2',
+                        director: 'directorPelicula2',
+                        anyo: '2000',
+                        img: "http://placehold.it/350x150/FFC107/000000",sesion: 'segunda'
+                    }];
+                    this.notifyPath('movies', this.movies);
+                } else {
+                    this.movies = [{
+                        titulo: 'starWars3',
+                        director: 'directorStarWars3',
+                        anyo: '19993',
+                        img: "http://placehold.it/350x150/FFC107/000000",sesion: 'primera3'
+                    }, {
+                        titulo: 'pelicula4',
+                        director: 'directorPelicula4',
+                        anyo: '20004',
+                        img: "http://placehold.it/350x150/FFC107/000000",sesion: 'segunda4'
+                    }];
+                    this.notifyPath('movies', this.movies);
+                }
+                i++;
+            }
+        })
+    })();
+    </script>
+</dom-module>

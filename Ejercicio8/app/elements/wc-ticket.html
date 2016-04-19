@@ -1,0 +1,42 @@
+
+<dom-module id="wc-ticket">
+    <style>
+    .tick {
+        border-style: dotted;
+        background-color: grey;
+        text-align: center;
+        border-radius: 50px;
+        height: 200px;
+        margin: 10px;
+    }
+    </style>
+    <template>
+        <div class="tick">
+            <h1 id='titulo'>Título: {{title}}</h1>
+            <div id='sesion'>Sesion: {{sesion}}</div>
+            <div id='code'>Código: {{code}}</div>
+        </div>
+    </template>
+    <script>
+    (function() {
+        Ticket = Polymer({
+            is: 'wc-ticket',
+            properties: {
+                title: {
+                    type: String,
+                    value: "tiquetSinValor"
+                },
+                code: {
+                    type: String,
+                    value: 'codigoSinValor'
+                },
+                sesion: {
+                    type: String,
+                    value: "sesionSinValor"
+                }
+            }
+
+        })
+    })();
+    </script>
+</dom-module>
